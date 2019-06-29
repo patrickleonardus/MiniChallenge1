@@ -13,6 +13,8 @@
 		E6A3B35322C70DFB00501D3D /* Aqurate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B35122C70DFB00501D3D /* Aqurate.xcdatamodeld */; };
 		E6A3B35522C70DFC00501D3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A3B35422C70DFC00501D3D /* Assets.xcassets */; };
 		E6A3B35822C70DFC00501D3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A3B35622C70DFC00501D3D /* LaunchScreen.storyboard */; };
+		E6A3B36222C710E900501D3D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B36122C710E900501D3D /* CollectionViewCell.swift */; };
+		E6A3B36422C7374400501D3D /* ViewControllerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B36322C7374400501D3D /* ViewControllerSignUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E6A3B35422C70DFC00501D3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6A3B35722C70DFC00501D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6A3B35922C70DFC00501D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6A3B36122C710E900501D3D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E6A3B36322C7374400501D3D /* ViewControllerSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSignUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				E6A3B34A22C70DFB00501D3D /* AppDelegate.swift */,
 				E6A3B34C22C70DFB00501D3D /* ViewController.swift */,
+				E6A3B36322C7374400501D3D /* ViewControllerSignUp.swift */,
+				E6A3B36122C710E900501D3D /* CollectionViewCell.swift */,
 				E6A3B34E22C70DFB00501D3D /* Main.storyboard */,
 				E6A3B35422C70DFC00501D3D /* Assets.xcassets */,
 				E6A3B35622C70DFC00501D3D /* LaunchScreen.storyboard */,
@@ -139,7 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A3B35322C70DFB00501D3D /* Aqurate.xcdatamodeld in Sources */,
+				E6A3B36422C7374400501D3D /* ViewControllerSignUp.swift in Sources */,
 				E6A3B34D22C70DFB00501D3D /* ViewController.swift in Sources */,
+				E6A3B36222C710E900501D3D /* CollectionViewCell.swift in Sources */,
 				E6A3B34B22C70DFB00501D3D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
