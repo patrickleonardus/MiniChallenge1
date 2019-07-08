@@ -10,53 +10,98 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-    @IBOutlet weak var lblName: UILabel!
-    
+    @IBOutlet weak var viewHead: UIView!
     @IBOutlet weak var imageProfile: UIImageView!
-    @IBOutlet weak var lblProfile: UILabel!
+    @IBOutlet weak var lblQuotes: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
-    var nameTemp : String = ""
     var imageTemp : UIImage?
+    
+    var quotes : [String] = ["Good things take time","Practice makes perfect","Talk less do more"]
    
-    let gameMode = ["Free Mode","Keeper Mode","Hint"]
-    let gameDetail = ["You are free to shoot, shoot the ball to the corner of the goal to get higher score","There are a simulation of keeper, you need to avoid the keeper by shooting away from keeper","You can improve your futsal knowledge here"]
+    let gameMode = ["Free Mode","Keeper Mode"]
+    let gameDetail = ["You are free to shoot, shoot the ball to the corner of the goal to get higher score","There are a simulation of keeper, you need to avoid the keeper by shooting away from keeper"]
     let gamePict = [    UIImage(named: "Free Mode"),
-                        UIImage(named: "Keeper Mode"),
-                        UIImage(named: "Hint")]
+                        UIImage(named: "Keeper Mode")]
     
-    let gameID = ["A","B","C"]
-    
+    let gameID = ["A","B"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
         
-        lblName.text = "Hi, " + nameTemp
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = Colors.orange
+        
+        self.navigationItem.setHidesBackButton(true, animated: true)
+     
+        lblQuotes.text = "\"" + quotes.randomElement()! + "\""
+        imageTemp = UIImage(named: "profileTap")
         imageProfile.image = imageTemp
         roundedProfile()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapFunction))
+        imageProfile.isUserInteractionEnabled = true
+        imageProfile.addGestureRecognizer(tap)
+        viewHead.backgroundColor = Colors.orange
+        
+        if(firstCheck == true){
+            
+            let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+            imageProfile.image = UIImage(data: data as Data)
+            imageProfile.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
+        }
+        
+        //viewAttribute()
     
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
+        
+        lblQuotes.text = "\"" + quotes.randomElement()! + "\""
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.tabBarController?.tabBar.isHidden = false
+        
+        if(firstCheck == true){
+            let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+            imageProfile.image = UIImage(data: data as Data)
+            imageProfile.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
+        } 
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    @objc
+    func tapFunction(sender:UITapGestureRecognizer) {
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "Profile")
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
     
     func roundedProfile(){
         imageProfile.layer.borderWidth = 1
         imageProfile.layer.masksToBounds = false
-        imageProfile.layer.borderColor = UIColor.black.cgColor
+        imageProfile.layer.borderColor = UIColor.white.cgColor
+        imageProfile.layer.borderWidth = 2.0
         imageProfile.layer.cornerRadius = imageProfile.frame.height/2
         imageProfile.clipsToBounds = true
+    }
+    
+    func viewAttribute(){
+        viewHead.layer.shadowColor = UIColor.gray.cgColor
+        viewHead.layer.shadowOffset = CGSize(width: 0, height: 2)
+        viewHead.layer.shadowRadius = 1.2
+        viewHead.layer.shadowOpacity = 1.0
+        viewHead.clipsToBounds = false
     }
 
 }
@@ -73,15 +118,17 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
         cell?.mode.text = gameMode[indexPath.row]
         cell?.detail.text = gameDetail[indexPath.row]
         cell?.image.image = gamePict[indexPath.row]
-        
-        cell?.contentView.layer.cornerRadius = 5.0
-        cell?.contentView.layer.borderWidth = 2.0
-        cell?.contentView.layer.borderColor = UIColor.clear.cgColor
+        cell?.image.layer.cornerRadius = 10.0
+        cell?.image.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        cell?.contentView.layer.cornerRadius = 10
+        cell?.contentView.layer.borderWidth = 3.5
+        cell?.contentView.layer.borderColor = UIColor.orange.cgColor
         cell?.contentView.layer.masksToBounds = false
         cell?.layer.shadowColor = UIColor.gray.cgColor
-        cell?.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        cell?.layer.shadowRadius = 4.0
+        cell?.layer.shadowOffset = CGSize(width: 0, height: 1.5)
+        cell?.layer.shadowRadius = 5.0
         cell?.layer.shadowOpacity = 1.0
+        cell?.layer.cornerRadius = 10
         cell?.layer.masksToBounds = false
         cell?.layer.shadowPath = UIBezierPath(roundedRect: cell!.bounds, cornerRadius: cell!.contentView.layer.cornerRadius).cgPath
         

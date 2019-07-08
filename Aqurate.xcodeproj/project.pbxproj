@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6151B5322D34D2D00E72FA8 /* ViewControllerKeeperMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */; };
+		E6151B5522D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */; };
+		E652B15322CBC63A001424AA /* ViewControllerTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652B15222CBC63A001424AA /* ViewControllerTips.swift */; };
+		E6573A2E22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */; };
+		E67267D422CE4C6E009494E2 /* ViewControllerProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */; };
+		E67267D622CE4DB1009494E2 /* ViewControllerProfileEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */; };
+		E67267D822CEDED4009494E2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67267D722CEDED4009494E2 /* Colors.swift */; };
 		E6A3B34B22C70DFB00501D3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B34A22C70DFB00501D3D /* AppDelegate.swift */; };
 		E6A3B34D22C70DFB00501D3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B34C22C70DFB00501D3D /* ViewController.swift */; };
 		E6A3B35022C70DFB00501D3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A3B34E22C70DFB00501D3D /* Main.storyboard */; };
@@ -14,10 +21,19 @@
 		E6A3B35522C70DFC00501D3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A3B35422C70DFC00501D3D /* Assets.xcassets */; };
 		E6A3B35822C70DFC00501D3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A3B35622C70DFC00501D3D /* LaunchScreen.storyboard */; };
 		E6A3B36222C710E900501D3D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B36122C710E900501D3D /* CollectionViewCell.swift */; };
-		E6A3B36422C7374400501D3D /* ViewControllerSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B36322C7374400501D3D /* ViewControllerSignUp.swift */; };
+		E6A3B36622C75CAB00501D3D /* ViewControllerFreeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B36522C75CAB00501D3D /* ViewControllerFreeMode.swift */; };
+		E6A3B36822C7618600501D3D /* CollectionViewCellFreeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A3B36722C7618600501D3D /* CollectionViewCellFreeMode.swift */; };
+		E6E9A7BE22CC8B3900FB7E9F /* Pulsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E9A7BD22CC8B3900FB7E9F /* Pulsing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeeperMode.swift; sourceTree = "<group>"; };
+		E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellKeeperMode.swift; sourceTree = "<group>"; };
+		E652B15222CBC63A001424AA /* ViewControllerTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTips.swift; sourceTree = "<group>"; };
+		E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFreeModeSemiPro.swift; sourceTree = "<group>"; };
+		E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfiles.swift; sourceTree = "<group>"; };
+		E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfileEdit.swift; sourceTree = "<group>"; };
+		E67267D722CEDED4009494E2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E6A3B34722C70DFB00501D3D /* Aqurate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aqurate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A3B34A22C70DFB00501D3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6A3B34C22C70DFB00501D3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +43,9 @@
 		E6A3B35722C70DFC00501D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6A3B35922C70DFC00501D3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6A3B36122C710E900501D3D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		E6A3B36322C7374400501D3D /* ViewControllerSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSignUp.swift; sourceTree = "<group>"; };
+		E6A3B36522C75CAB00501D3D /* ViewControllerFreeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFreeMode.swift; sourceTree = "<group>"; };
+		E6A3B36722C7618600501D3D /* CollectionViewCellFreeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellFreeMode.swift; sourceTree = "<group>"; };
+		E6E9A7BD22CC8B3900FB7E9F /* Pulsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pulsing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +79,18 @@
 			isa = PBXGroup;
 			children = (
 				E6A3B34A22C70DFB00501D3D /* AppDelegate.swift */,
-				E6A3B34C22C70DFB00501D3D /* ViewController.swift */,
-				E6A3B36322C7374400501D3D /* ViewControllerSignUp.swift */,
+				E67267D722CEDED4009494E2 /* Colors.swift */,
+				E6E9A7BD22CC8B3900FB7E9F /* Pulsing.swift */,
 				E6A3B36122C710E900501D3D /* CollectionViewCell.swift */,
+				E6A3B36722C7618600501D3D /* CollectionViewCellFreeMode.swift */,
+				E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */,
+				E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */,
+				E6A3B34C22C70DFB00501D3D /* ViewController.swift */,
+				E652B15222CBC63A001424AA /* ViewControllerTips.swift */,
+				E6A3B36522C75CAB00501D3D /* ViewControllerFreeMode.swift */,
+				E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */,
+				E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */,
+				E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */,
 				E6A3B34E22C70DFB00501D3D /* Main.storyboard */,
 				E6A3B35422C70DFC00501D3D /* Assets.xcassets */,
 				E6A3B35622C70DFC00501D3D /* LaunchScreen.storyboard */,
@@ -145,10 +172,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A3B35322C70DFB00501D3D /* Aqurate.xcdatamodeld in Sources */,
-				E6A3B36422C7374400501D3D /* ViewControllerSignUp.swift in Sources */,
+				E67267D822CEDED4009494E2 /* Colors.swift in Sources */,
+				E67267D622CE4DB1009494E2 /* ViewControllerProfileEdit.swift in Sources */,
+				E6A3B36622C75CAB00501D3D /* ViewControllerFreeMode.swift in Sources */,
+				E6573A2E22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift in Sources */,
 				E6A3B34D22C70DFB00501D3D /* ViewController.swift in Sources */,
+				E6151B5322D34D2D00E72FA8 /* ViewControllerKeeperMode.swift in Sources */,
+				E67267D422CE4C6E009494E2 /* ViewControllerProfiles.swift in Sources */,
+				E6A3B36822C7618600501D3D /* CollectionViewCellFreeMode.swift in Sources */,
 				E6A3B36222C710E900501D3D /* CollectionViewCell.swift in Sources */,
+				E652B15322CBC63A001424AA /* ViewControllerTips.swift in Sources */,
+				E6E9A7BE22CC8B3900FB7E9F /* Pulsing.swift in Sources */,
 				E6A3B34B22C70DFB00501D3D /* AppDelegate.swift in Sources */,
+				E6151B5522D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
