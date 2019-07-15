@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		E6151B5322D34D2D00E72FA8 /* ViewControllerKeeperMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */; };
 		E6151B5522D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */; };
+		E6151B5922D4A76200E72FA8 /* ViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6151B5822D4A76200E72FA8 /* ViewControllerLogin.swift */; };
+		E615D69522D8772E006E9E68 /* ViewControllerLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69422D8772E006E9E68 /* ViewControllerLocation.swift */; };
+		E615D69A22DA47CB006E9E68 /* ViewControllerStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69922DA47CB006E9E68 /* ViewControllerStatistics.swift */; };
+		E615D69C22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69B22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift */; };
+		E615D69E22DC7AC1006E9E68 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69D22DC7AC1006E9E68 /* Graph.swift */; };
 		E652B15322CBC63A001424AA /* ViewControllerTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652B15222CBC63A001424AA /* ViewControllerTips.swift */; };
 		E6573A2E22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */; };
 		E67267D422CE4C6E009494E2 /* ViewControllerProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */; };
@@ -29,6 +34,11 @@
 /* Begin PBXFileReference section */
 		E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeeperMode.swift; sourceTree = "<group>"; };
 		E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellKeeperMode.swift; sourceTree = "<group>"; };
+		E6151B5822D4A76200E72FA8 /* ViewControllerLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLogin.swift; sourceTree = "<group>"; };
+		E615D69422D8772E006E9E68 /* ViewControllerLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLocation.swift; sourceTree = "<group>"; };
+		E615D69922DA47CB006E9E68 /* ViewControllerStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerStatistics.swift; sourceTree = "<group>"; };
+		E615D69B22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFreeModePro.swift; sourceTree = "<group>"; };
+		E615D69D22DC7AC1006E9E68 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		E652B15222CBC63A001424AA /* ViewControllerTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTips.swift; sourceTree = "<group>"; };
 		E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFreeModeSemiPro.swift; sourceTree = "<group>"; };
 		E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfiles.swift; sourceTree = "<group>"; };
@@ -59,6 +69,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E615D69622D87C4C006E9E68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6A3B34C22C70DFB00501D3D /* ViewController.swift */,
+				E652B15222CBC63A001424AA /* ViewControllerTips.swift */,
+				E6A3B36522C75CAB00501D3D /* ViewControllerFreeMode.swift */,
+				E615D69422D8772E006E9E68 /* ViewControllerLocation.swift */,
+				E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */,
+				E615D69B22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift */,
+				E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */,
+				E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */,
+				E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */,
+				E6151B5822D4A76200E72FA8 /* ViewControllerLogin.swift */,
+				E615D69922DA47CB006E9E68 /* ViewControllerStatistics.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E615D69722D87E6C006E9E68 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6E9A7BD22CC8B3900FB7E9F /* Pulsing.swift */,
+				E6A3B36122C710E900501D3D /* CollectionViewCell.swift */,
+				E6A3B36722C7618600501D3D /* CollectionViewCellFreeMode.swift */,
+				E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */,
+				E615D69D22DC7AC1006E9E68 /* Graph.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E615D69822D87E7F006E9E68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E67267D722CEDED4009494E2 /* Colors.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E6A3B33E22C70DFA00501D3D = {
 			isa = PBXGroup;
 			children = (
@@ -79,18 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				E6A3B34A22C70DFB00501D3D /* AppDelegate.swift */,
-				E67267D722CEDED4009494E2 /* Colors.swift */,
-				E6E9A7BD22CC8B3900FB7E9F /* Pulsing.swift */,
-				E6A3B36122C710E900501D3D /* CollectionViewCell.swift */,
-				E6A3B36722C7618600501D3D /* CollectionViewCellFreeMode.swift */,
-				E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */,
-				E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */,
-				E6A3B34C22C70DFB00501D3D /* ViewController.swift */,
-				E652B15222CBC63A001424AA /* ViewControllerTips.swift */,
-				E6A3B36522C75CAB00501D3D /* ViewControllerFreeMode.swift */,
-				E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */,
-				E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */,
-				E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */,
+				E615D69822D87E7F006E9E68 /* Model */,
+				E615D69722D87E6C006E9E68 /* Controller */,
+				E615D69622D87C4C006E9E68 /* View */,
 				E6A3B34E22C70DFB00501D3D /* Main.storyboard */,
 				E6A3B35422C70DFC00501D3D /* Assets.xcassets */,
 				E6A3B35622C70DFC00501D3D /* LaunchScreen.storyboard */,
@@ -174,10 +213,15 @@
 				E6A3B35322C70DFB00501D3D /* Aqurate.xcdatamodeld in Sources */,
 				E67267D822CEDED4009494E2 /* Colors.swift in Sources */,
 				E67267D622CE4DB1009494E2 /* ViewControllerProfileEdit.swift in Sources */,
+				E615D69A22DA47CB006E9E68 /* ViewControllerStatistics.swift in Sources */,
 				E6A3B36622C75CAB00501D3D /* ViewControllerFreeMode.swift in Sources */,
+				E615D69522D8772E006E9E68 /* ViewControllerLocation.swift in Sources */,
 				E6573A2E22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift in Sources */,
+				E6151B5922D4A76200E72FA8 /* ViewControllerLogin.swift in Sources */,
 				E6A3B34D22C70DFB00501D3D /* ViewController.swift in Sources */,
+				E615D69C22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift in Sources */,
 				E6151B5322D34D2D00E72FA8 /* ViewControllerKeeperMode.swift in Sources */,
+				E615D69E22DC7AC1006E9E68 /* Graph.swift in Sources */,
 				E67267D422CE4C6E009494E2 /* ViewControllerProfiles.swift in Sources */,
 				E6A3B36822C7618600501D3D /* CollectionViewCellFreeMode.swift in Sources */,
 				E6A3B36222C710E900501D3D /* CollectionViewCell.swift in Sources */,

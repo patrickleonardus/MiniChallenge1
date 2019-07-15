@@ -14,10 +14,10 @@ class ViewControllerFreeMode: UIViewController{
     @IBOutlet weak var lblQuotes: UILabel!
     @IBOutlet weak var collectionViewFreeMode: UICollectionView!
     
+    
     let freeModePict = [UIImage(named: "semi"),UIImage(named: "pro")]
     let difficultyName = ["Semi-Pro","Professional"]
     let difficultyDescription = ["Choose this level for the easier step, you will get a goal box divided by 6 boxes","Pick this level to be a professional shooter, the goal box will be divided by 9 boxes"]
-    let ID = ["AA","AB"]
     
     let quotes : [String] = ["Reach your limit now","it ain't over until it's over","Man never quit"]
     
@@ -28,7 +28,7 @@ class ViewControllerFreeMode: UIViewController{
         self.navigationController?.navigationBar.backgroundColor = Colors.orange
         
         
-        self.hidesBottomBarWhenPushed = true
+        // self.hidesBottomBarWhenPushed = true
         self.tabBarController?.tabBar.isHidden = true
 
         lblQuotes.text = "\"" + quotes.randomElement()! + "\""
@@ -40,6 +40,7 @@ class ViewControllerFreeMode: UIViewController{
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         lblQuotes.text = "\"" + quotes.randomElement()! + "\""
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,9 +79,15 @@ extension ViewControllerFreeMode :  UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let IDs = ID[indexPath.row]
-        let viewController = storyboard?.instantiateViewController(withIdentifier: IDs)
+        
+        detailedScore = []
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "Location")
         self.navigationController?.pushViewController(viewController!, animated: true)
+        
+        let ID = indexPath.row
+        UserDefaults.standard.set(ID, forKey: "savedID")
+        
     }
 
 }

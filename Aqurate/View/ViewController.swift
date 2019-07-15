@@ -29,11 +29,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewHead.setGradientBackground(colourOne: Colors.orange, colourTwo: Colors.liteRed)
+        
         let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
         
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = Colors.orange
+        //statusBar.backgroundColor = Colors.orange
+        statusBar.setGradientBackground(colourOne: Colors.orange, colourTwo: Colors.liteRed)
         
+        self.tabBarController?.tabBar.isHidden = false
         self.navigationItem.setHidesBackButton(true, animated: true)
      
         lblQuotes.text = "\"" + quotes.randomElement()! + "\""
@@ -71,7 +75,11 @@ class ViewController: UIViewController {
             let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
             imageProfile.image = UIImage(data: data as Data)
             imageProfile.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
-        } 
+        }
+        
+        if(firstCheck == false){
+            imageProfile.image = UIImage(named: "profileTap")
+        }
         
     }
     
@@ -83,8 +91,18 @@ class ViewController: UIViewController {
     @objc
     func tapFunction(sender:UITapGestureRecognizer) {
         
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "Profile")
-        self.navigationController?.pushViewController(viewController!, animated: true)
+        let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
+        
+        if(firstCheck == true){
+            let viewController = storyboard?.instantiateViewController(withIdentifier: "Profile")
+            self.navigationController?.pushViewController(viewController!, animated: true)
+        }
+        else if(firstCheck == false){
+            let viewController = storyboard?.instantiateViewController(withIdentifier: "Login")
+            self.navigationController?.pushViewController(viewController!, animated: true)
+        }
+        
+        
     }
     
     func roundedProfile(){
@@ -141,5 +159,18 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
     
+}
+
+extension UIView {
+    func setGradientBackground(colourOne : UIColor, colourTwo : UIColor){
+        let gradientColour = CAGradientLayer()
+        gradientColour.frame = bounds
+        gradientColour.colors = [colourOne.cgColor, colourTwo.cgColor]
+        gradientColour.locations = [0.0, 1.0]
+        gradientColour.startPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientColour.endPoint = CGPoint(x: 0.0, y: 0.0)
+        
+        layer.insertSublayer(gradientColour, at: 0)
+    }
 }
 
