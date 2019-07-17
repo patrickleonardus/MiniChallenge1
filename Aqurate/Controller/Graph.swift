@@ -14,8 +14,6 @@ class Graph: UIView {
     var barLineX = UIBezierPath()
     var barLineY = UIBezierPath()
     
-    let HighTotalScore = 30
-    
     func scoreText(x:Int){
         let score = x
         let label = UILabel()
@@ -150,8 +148,8 @@ class Graph: UIView {
             }
         }
         
-        let totalScore = UserDefaults.standard.object(forKey: "savedScore")
-        scoreText(x: totalScore as! Int)
-        statistik(x: totalScore as! Int)
+        let totalScore = gameScore
+        scoreText(x: totalScore)
+        statistik(x: totalScore)
     }
 }

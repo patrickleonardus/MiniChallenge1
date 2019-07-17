@@ -14,7 +14,11 @@
 		E615D69A22DA47CB006E9E68 /* ViewControllerStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69922DA47CB006E9E68 /* ViewControllerStatistics.swift */; };
 		E615D69C22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69B22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift */; };
 		E615D69E22DC7AC1006E9E68 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69D22DC7AC1006E9E68 /* Graph.swift */; };
-		E652B15322CBC63A001424AA /* ViewControllerTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652B15222CBC63A001424AA /* ViewControllerTips.swift */; };
+		E615D6A022DCE358006E9E68 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D69F22DCE358006E9E68 /* Button.swift */; };
+		E615D6A222DDCB82006E9E68 /* TableViewCellHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D6A122DDCB82006E9E68 /* TableViewCellHistory.swift */; };
+		E615D6A422DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D6A322DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift */; };
+		E615D6A622DE31CD006E9E68 /* ViewControllerKeeperModePro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D6A522DE31CD006E9E68 /* ViewControllerKeeperModePro.swift */; };
+		E652B15322CBC63A001424AA /* ViewControllerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652B15222CBC63A001424AA /* ViewControllerHistory.swift */; };
 		E6573A2E22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */; };
 		E67267D422CE4C6E009494E2 /* ViewControllerProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */; };
 		E67267D622CE4DB1009494E2 /* ViewControllerProfileEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */; };
@@ -39,7 +43,11 @@
 		E615D69922DA47CB006E9E68 /* ViewControllerStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerStatistics.swift; sourceTree = "<group>"; };
 		E615D69B22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFreeModePro.swift; sourceTree = "<group>"; };
 		E615D69D22DC7AC1006E9E68 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
-		E652B15222CBC63A001424AA /* ViewControllerTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTips.swift; sourceTree = "<group>"; };
+		E615D69F22DCE358006E9E68 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E615D6A122DDCB82006E9E68 /* TableViewCellHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellHistory.swift; sourceTree = "<group>"; };
+		E615D6A322DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeeperModeSemiPro.swift; sourceTree = "<group>"; };
+		E615D6A522DE31CD006E9E68 /* ViewControllerKeeperModePro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeeperModePro.swift; sourceTree = "<group>"; };
+		E652B15222CBC63A001424AA /* ViewControllerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistory.swift; sourceTree = "<group>"; };
 		E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFreeModeSemiPro.swift; sourceTree = "<group>"; };
 		E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfiles.swift; sourceTree = "<group>"; };
 		E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfileEdit.swift; sourceTree = "<group>"; };
@@ -73,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				E6A3B34C22C70DFB00501D3D /* ViewController.swift */,
-				E652B15222CBC63A001424AA /* ViewControllerTips.swift */,
+				E652B15222CBC63A001424AA /* ViewControllerHistory.swift */,
 				E6A3B36522C75CAB00501D3D /* ViewControllerFreeMode.swift */,
 				E615D69422D8772E006E9E68 /* ViewControllerLocation.swift */,
 				E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */,
@@ -83,6 +91,8 @@
 				E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */,
 				E6151B5822D4A76200E72FA8 /* ViewControllerLogin.swift */,
 				E615D69922DA47CB006E9E68 /* ViewControllerStatistics.swift */,
+				E615D6A322DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift */,
+				E615D6A522DE31CD006E9E68 /* ViewControllerKeeperModePro.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -95,6 +105,8 @@
 				E6A3B36722C7618600501D3D /* CollectionViewCellFreeMode.swift */,
 				E6151B5422D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift */,
 				E615D69D22DC7AC1006E9E68 /* Graph.swift */,
+				E615D69F22DCE358006E9E68 /* Button.swift */,
+				E615D6A122DDCB82006E9E68 /* TableViewCellHistory.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -213,6 +225,8 @@
 				E6A3B35322C70DFB00501D3D /* Aqurate.xcdatamodeld in Sources */,
 				E67267D822CEDED4009494E2 /* Colors.swift in Sources */,
 				E67267D622CE4DB1009494E2 /* ViewControllerProfileEdit.swift in Sources */,
+				E615D6A422DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift in Sources */,
+				E615D6A622DE31CD006E9E68 /* ViewControllerKeeperModePro.swift in Sources */,
 				E615D69A22DA47CB006E9E68 /* ViewControllerStatistics.swift in Sources */,
 				E6A3B36622C75CAB00501D3D /* ViewControllerFreeMode.swift in Sources */,
 				E615D69522D8772E006E9E68 /* ViewControllerLocation.swift in Sources */,
@@ -222,10 +236,12 @@
 				E615D69C22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift in Sources */,
 				E6151B5322D34D2D00E72FA8 /* ViewControllerKeeperMode.swift in Sources */,
 				E615D69E22DC7AC1006E9E68 /* Graph.swift in Sources */,
+				E615D6A222DDCB82006E9E68 /* TableViewCellHistory.swift in Sources */,
 				E67267D422CE4C6E009494E2 /* ViewControllerProfiles.swift in Sources */,
 				E6A3B36822C7618600501D3D /* CollectionViewCellFreeMode.swift in Sources */,
 				E6A3B36222C710E900501D3D /* CollectionViewCell.swift in Sources */,
-				E652B15322CBC63A001424AA /* ViewControllerTips.swift in Sources */,
+				E615D6A022DCE358006E9E68 /* Button.swift in Sources */,
+				E652B15322CBC63A001424AA /* ViewControllerHistory.swift in Sources */,
 				E6E9A7BE22CC8B3900FB7E9F /* Pulsing.swift in Sources */,
 				E6A3B34B22C70DFB00501D3D /* AppDelegate.swift in Sources */,
 				E6151B5522D34F0400E72FA8 /* CollectionViewCellKeeperMode.swift in Sources */,

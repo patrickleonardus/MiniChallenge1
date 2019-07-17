@@ -8,6 +8,8 @@
 
 import UIKit
 
+var HighTotalScore = 0
+
 var soccerFields1 : [String] = ["Position 1","Position 2","Position 3"]
 var soccerFields2 : [String] = ["Position 4","Position 5"]
 var flagPlayerLocation = 0
@@ -41,19 +43,14 @@ class ViewControllerLocation: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.barTintColor = UIColor.clear
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.alpha = 0.3
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        self.navigationController?.navigationBar.shadowImage = nil
-        self.navigationController?.navigationBar.barTintColor = Colors.orange
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        self.navigationController?.navigationBar.alpha = 1
+
     }
     
     func randomPlayerLocation1(){
@@ -78,20 +75,38 @@ class ViewControllerLocation: UIViewController {
     
     @IBAction func btnNext(_ sender: Any) {
         
-        let checkID = UserDefaults.standard.integer(forKey: "savedID")
+        let checkFreeModeID = UserDefaults.standard.integer(forKey: "savedFreeModeID")
+        let checkKeeperModeID = UserDefaults.standard.integer(forKey: "savedKeeperModeID")
+        let checkRootID = UserDefaults.standard.integer(forKey: "savedRootID")
         
-        if(checkID == 0){
-            let viewController = storyboard?.instantiateViewController(withIdentifier: "FMSemi")
-            self.navigationController?.pushViewController(viewController!, animated: true)
+        
+        if(checkRootID == 0){
+            if(checkFreeModeID == 0){
+                let viewController = storyboard?.instantiateViewController(withIdentifier: "FMSemi")
+                self.navigationController?.pushViewController(viewController!, animated: true)
+                HighTotalScore = 30
+            }
+            
+            else if(checkFreeModeID == 1){
+                let viewController = storyboard?.instantiateViewController(withIdentifier: "FMPro")
+                self.navigationController?.pushViewController(viewController!, animated: true)
+                HighTotalScore = 40
+            }
         }
         
-        if(checkID == 1){
-            let viewController = storyboard?.instantiateViewController(withIdentifier: "FMPro")
-            self.navigationController?.pushViewController(viewController!, animated: true)
+        else if(checkRootID == 1){
+            if(checkKeeperModeID == 0){
+                let viewController = storyboard?.instantiateViewController(withIdentifier: "KMSemi")
+                self.navigationController?.pushViewController(viewController!, animated: true)
+                HighTotalScore = 30
+            }
+            else if (checkKeeperModeID == 1){
+                let viewController = storyboard?.instantiateViewController(withIdentifier: "KMPro")
+                self.navigationController?.pushViewController(viewController!, animated: true)
+                HighTotalScore = 40
+            }
         }
-       
+        
         
     }
-    
-
 }

@@ -38,7 +38,7 @@ class ViewControllerProfiles: UIViewController{
         
         let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
         
-        self.navigationController?.navigationBar.barTintColor = Colors.orange
+        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
         
@@ -59,10 +59,12 @@ class ViewControllerProfiles: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
      
     @IBAction func btnEditProfile(_ sender: Any) {
@@ -70,10 +72,18 @@ class ViewControllerProfiles: UIViewController{
     }
     
     @IBAction func btnSignOut(_ sender: Any) {
-        check = false
-        UserDefaults.standard.set(check, forKey: "check")
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "Home")
-        self.navigationController?.pushViewController(viewController!, animated: true)
+        
+        let alert = UIAlertController(title: "Are you sure you want to log out?", message: nil , preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (UIAlertAction) in
+            self.check = false
+            UserDefaults.standard.set(self.check, forKey: "check")
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+            self.navigationController?.pushViewController(viewController!, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
     
     

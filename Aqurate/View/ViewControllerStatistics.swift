@@ -12,13 +12,25 @@ class ViewControllerStatistics: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func btnBackToHome(_ sender: Any) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "Home")
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
+    
+    @IBAction func btnRetry(_ sender: Any) {
+        detailedScore = []
+        gameScore = 0
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "Location")
+        self.navigationController?.pushViewController(viewController!, animated: true)
+        
+        let cek = UserDefaults.standard.object(forKey: "savedID")
+        print(cek!)
+    }
+    
     
 }

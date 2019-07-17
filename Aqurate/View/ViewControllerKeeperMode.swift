@@ -81,6 +81,8 @@ extension ViewControllerKeeperMode :  UICollectionViewDelegate, UICollectionView
         let IDs = ID[indexPath.row]
         let viewController = storyboard?.instantiateViewController(withIdentifier: IDs)
         self.navigationController?.pushViewController(viewController!, animated: true)
+        
+        UserDefaults.standard.set(IDs, forKey: "savedKeeperModeID")
     }
     
 }

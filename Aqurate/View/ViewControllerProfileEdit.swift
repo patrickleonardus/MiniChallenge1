@@ -19,8 +19,6 @@ class ViewControllerProfileEdit: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var phoneProfile: UITextField!
     @IBOutlet weak var passwordProfile: UITextField!
     
-    
-    
     var errorCheck = false
     var check = false
     
@@ -48,12 +46,10 @@ class ViewControllerProfileEdit: UIViewController, UINavigationControllerDelegat
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
         self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
         self.tabBarController?.tabBar.isHidden = false
     }
     

@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(),for: .default)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
+        if let directoryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last { print("Documents Directory: \(directoryLocation)Application Support") }
         
         return true
     }

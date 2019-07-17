@@ -27,8 +27,6 @@ class ViewControllerFreeMode: UIViewController{
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.backgroundColor = Colors.orange
         
-        
-        // self.hidesBottomBarWhenPushed = true
         self.tabBarController?.tabBar.isHidden = true
 
         lblQuotes.text = "\"" + quotes.randomElement()! + "\""
@@ -39,12 +37,15 @@ class ViewControllerFreeMode: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         lblQuotes.text = "\"" + quotes.randomElement()! + "\""
         self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.backgroundColor = Colors.orange
     }
 
 }
@@ -81,12 +82,13 @@ extension ViewControllerFreeMode :  UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         detailedScore = []
+        gameScore = 0
         
         let viewController = storyboard?.instantiateViewController(withIdentifier: "Location")
         self.navigationController?.pushViewController(viewController!, animated: true)
         
         let ID = indexPath.row
-        UserDefaults.standard.set(ID, forKey: "savedID")
+        UserDefaults.standard.set(ID, forKey: "savedFreeModeID")
         
     }
 

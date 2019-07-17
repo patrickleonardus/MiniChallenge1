@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreMotion
+import CoreData
+
 
 var flagSession = 0
 var gameScore = 0
@@ -15,7 +17,6 @@ var detailedScore: [Int] = []
 
 class ViewControllerFreeModeSemiPro: UIViewController {
 
-    
     @IBOutlet weak var lblWarning: UILabel!
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var goalImage: UIImageView!
@@ -27,8 +28,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     @IBOutlet weak var view5: UIView!
     @IBOutlet weak var view6: UIView!
     
-    var gameCycle = 0
-    
     
     var flagConfirmation1 = 0
     var flagConfirmation2 = 0
@@ -37,10 +36,12 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     var flagConfirmation5 = 0
     var flagConfirmation6 = 0
     
-    //var flagCheck = 0
+    var round = 0
+    var trainingData : [Training]?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var timer = Timer()
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,9 +74,7 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //flagCheck = 0
-        
+      
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.enableAllOrientation = true
     }
@@ -98,8 +97,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
             timer.invalidate()
             lblWarning.text = ""
             goalViewVisible()
-            
-            
             
         }
         if UIDevice.current.orientation.isPortrait{
@@ -267,6 +264,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
         if(flagSession == 10){
             let viewController = storyboard?.instantiateViewController(withIdentifier: "Statistics")
             self.navigationController?.pushViewController(viewController!, animated: true)
+            
+            saveTraining(arrScores: detailedScore)
         }
         if(flagSession != 10){
             if(flagSession%2 == 0){
@@ -275,6 +274,94 @@ class ViewControllerFreeModeSemiPro: UIViewController {
             }
         }
     }
+    
+    private func saveTraining(arrScores: [Int]){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM YYYY"
+        let date = formatter.string(from: Date.init() as Date)
+
+        let training = Training(context: self.context)
+        let round = getRound() + 1
+
+        training.date = date
+        training.difficulty = "Semi-Pro"
+        training.mode = "Free Mode"
+        training.rating = getGrade()
+        training.round = round
+    
+        var scoreInput : [Score] = []
+        var id = getRound() * 10
+        for scoreFor in arrScores {
+            let scoreContext = Score(context: self.context)
+            id += 1
+            scoreContext.id = id
+            scoreContext.round = round
+            scoreContext.score = Int16(scoreFor)
+            scoreInput.append(scoreContext)
+        }
+        
+        training.addToScores(NSOrderedSet(array: scoreInput))
+        //training.scores = NSOrderedSet(object: scoreInput!)
+        trainingData?.append(training)
+
+        do {
+            try context.save()
+        } catch {
+            print("Error 001 : Context not saved.")
+        }
+    }
+    
+    func getGrade() -> String {
+        let rate = gameScore * 100 / HighTotalScore
+        if rate >= 80 {
+            return "A"
+        } else if rate >= 60 {
+            return "B"
+        } else if rate >= 40 {
+            return "C"
+        } else if rate >= 20 {
+            return "D"
+        } else {
+            return "E"
+        }
+    }
+    
+//    private func saveScore(score: Int, round: Int, id: Int){
+    
+//        let training = Training(context: self.context)
+//        let score = Score(context: self.context)
+//
+//        data.date = date
+//        data.id = Int16(id)
+//        data.round = Int16(round)
+//        data.score = Int16(score)
+//
+//        trainingData?.append(data)
+//
+//        do {
+//            try context.save()
+//        } catch  {
+//            print("error")
+//        }
+//    }
+    
+    private func getRound() -> Int16{
+        let roundTemp: Int16
+        let request : NSFetchRequest = Training.fetchRequest()
+        
+        do {
+            trainingData = try context.fetch(request)
+        } catch  {
+            print("error")
+        }
+        
+        roundTemp = trainingData?.last?.round ?? 0
+        
+        return roundTemp
+    }
+    
+   
+    
     
     private func resetButton(){
         view1.backgroundColor = UIColor.clear
