@@ -10,13 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
-    @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var lblName: UILabel!
-    
-    
-    var imageTemp : UIImage?
    
     let gameMode = ["Free Mode","Keeper Mode"]
     let gameDetail = ["You are free to shoot, shoot the ball to the corner of the goal to get higher score","There are a simulation of keeper, you need to avoid the keeper by shooting away from keeper"]
@@ -24,60 +18,45 @@ class ViewController: UIViewController {
                         UIImage(named: "Keeper Mode")]
     
     let gameID = ["A","B"]
+    
+    var data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+    var infoImage : UIImageView!
+    
+    
+    struct Const {
+        static let ImageSizeForLargeState: CGFloat = 48
+        static let ImageRightMargin: CGFloat = 20
+        static let ImageBottomMarginForLargeState: CGFloat = 9
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = Colors.orange
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+//        profileImageButton()
+        
+//        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+      //  statusBar.backgroundColor = Colors.orange
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         self.tabBarController?.tabBar.isHidden = false
-        
-        let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
-     
-        imageTemp = UIImage(named: "profileTap")
-        imageProfile.image = imageTemp
-        roundedProfile()
-        lblName.text = ""
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapFunction))
-        imageProfile.isUserInteractionEnabled = true
-        imageProfile.addGestureRecognizer(tap)
-        
-        if(firstCheck == true){
-            
-            let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
-            imageProfile.image = UIImage(data: data as Data)
-            imageProfile.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
-            lblName.text = "Hi, " + (UserDefaults.standard.object(forKey: "savedName") as! String)
-        }
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
+        profileImageButton()
         
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         self.tabBarController?.tabBar.isHidden = false
-        
-        if(firstCheck == true){
-            let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
-            imageProfile.image = UIImage(data: data as Data)
-            imageProfile.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
-        }
-        
-        if(firstCheck == false){
-            imageProfile.image = UIImage(named: "profileTap")
-        }
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+       infoImage.isHidden = true
         super.viewWillDisappear(animated)
+        
     }
     
     @objc
@@ -93,18 +72,46 @@ class ViewController: UIViewController {
             let viewController = storyboard?.instantiateViewController(withIdentifier: "Login")
             self.navigationController?.pushViewController(viewController!, animated: true)
         }
-        
-        
     }
     
-    func roundedProfile(){
-        imageProfile.layer.borderWidth = 1
-        imageProfile.layer.masksToBounds = false
-        imageProfile.layer.borderColor = UIColor.orange.cgColor
-        imageProfile.layer.borderWidth = 2.0
-        imageProfile.layer.cornerRadius = imageProfile.frame.height/2
-        imageProfile.clipsToBounds = true
+    func profileImageButton(){
+        
+        let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
+        
+        if(firstCheck == true){
+            
+            data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+            infoImage = UIImageView(image: UIImage(data: data as Data))
+            navigationController?.navigationBar.addSubview(infoImage)
+            infoImage.tag = 10
+            infoImage.layer.cornerRadius = Const.ImageSizeForLargeState/2
+            infoImage.clipsToBounds = true
+            infoImage.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                infoImage.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -Const.ImageRightMargin),
+                infoImage.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor,
+                                                  constant: -Const.ImageBottomMarginForLargeState),
+                infoImage.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
+                infoImage.widthAnchor.constraint(equalToConstant: 53)
+                ])
+            infoImage.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapFunction))
+            infoImage.isUserInteractionEnabled = true
+            infoImage.addGestureRecognizer(tap)
+            
+        
+        }
+        
+        if(firstCheck == false){
+            infoImage.image = UIImage(named: "profileTap")
+        }
     }
+    
+    @IBAction func unwindToHome(_ sender : UIStoryboardSegue) {
+        
+    }
+
 }
 
 extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
@@ -122,8 +129,8 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
         cell?.image.layer.cornerRadius = 10.0
         cell?.image.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         cell?.contentView.layer.cornerRadius = 10
-        cell?.contentView.layer.borderWidth = 3.5
-        cell?.contentView.layer.borderColor = UIColor.orange.cgColor
+//        cell?.contentView.layer.borderWidth = 3.5
+        //cell?.contentView.layer.borderColor = UIColor.orange.cgColor
         cell?.contentView.layer.masksToBounds = false
         cell?.layer.shadowColor = UIColor.gray.cgColor
         cell?.layer.shadowOffset = CGSize(width: 0, height: 1.5)
@@ -138,10 +145,13 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let ID = gameID[indexPath.row]
+        let IDs = indexPath.row
         let viewController = storyboard?.instantiateViewController(withIdentifier: ID)
         self.navigationController?.pushViewController(viewController!, animated: true)
         
-        UserDefaults.standard.set(ID, forKey: "savedRootID")
+        UserDefaults.standard.set(IDs, forKey: "savedRootID")
+        UserDefaults.standard.set(10, forKey: "savedFreeModeID")
+        UserDefaults.standard.set(10, forKey: "savedKeeperModeID")
         
     }
     

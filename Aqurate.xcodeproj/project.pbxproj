@@ -87,12 +87,12 @@
 				E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */,
 				E615D69B22DB2FE4006E9E68 /* ViewControllerFreeModePro.swift */,
 				E6151B5222D34D2D00E72FA8 /* ViewControllerKeeperMode.swift */,
+				E615D6A322DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift */,
+				E615D6A522DE31CD006E9E68 /* ViewControllerKeeperModePro.swift */,
 				E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */,
 				E67267D522CE4DB1009494E2 /* ViewControllerProfileEdit.swift */,
 				E6151B5822D4A76200E72FA8 /* ViewControllerLogin.swift */,
 				E615D69922DA47CB006E9E68 /* ViewControllerStatistics.swift */,
-				E615D6A322DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift */,
-				E615D6A522DE31CD006E9E68 /* ViewControllerKeeperModePro.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

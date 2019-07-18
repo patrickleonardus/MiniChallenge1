@@ -24,8 +24,8 @@ class ViewControllerFreeMode: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         
         self.tabBarController?.tabBar.isHidden = true
 
@@ -37,15 +37,15 @@ class ViewControllerFreeMode: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         lblQuotes.text = "\"" + quotes.randomElement()! + "\""
         self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
     }
 
 }
@@ -66,7 +66,7 @@ extension ViewControllerFreeMode :  UICollectionViewDelegate, UICollectionViewDa
         cell?.image.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         cell?.contentView.layer.cornerRadius = 10
         cell?.contentView.layer.borderWidth = 3.5
-        cell?.contentView.layer.borderColor = UIColor.orange.cgColor
+       // cell?.contentView.layer.borderColor = UIColor.orange.cgColor
         cell?.contentView.layer.masksToBounds = false
         cell?.layer.shadowColor = UIColor.gray.cgColor
         cell?.layer.shadowOffset = CGSize(width: 0, height: 1.5)

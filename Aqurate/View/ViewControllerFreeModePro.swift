@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewControllerFreeModePro: UIViewController {
 
@@ -37,6 +38,9 @@ class ViewControllerFreeModePro: UIViewController {
     
     var timer = Timer()
     
+    var round = 0
+    var trainingData : [Training]?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +84,10 @@ class ViewControllerFreeModePro: UIViewController {
             goalImage.alpha = 1
             tiltPhone.alpha = 0
             goalViewVisible()
+            
+            if(flagSession == 0){
+                funcAlert()
+            }
             
         }
         if UIDevice.current.orientation.isPortrait{
@@ -321,6 +329,8 @@ class ViewControllerFreeModePro: UIViewController {
         if(flagSession == 10){
             let viewController = storyboard?.instantiateViewController(withIdentifier: "Statistics")
             self.navigationController?.pushViewController(viewController!, animated: true)
+            
+            saveTraining(arrScores: detailedScore)
         }
         if(flagSession != 10){
             if(flagSession%2 == 0){
@@ -328,6 +338,71 @@ class ViewControllerFreeModePro: UIViewController {
                 self.navigationController?.pushViewController(viewController!, animated: true)
             }
         }
+    }
+    
+    func saveTraining(arrScores: [Int]){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM YYYY"
+        let date = formatter.string(from: Date.init() as Date)
+        
+        let training = Training(context: self.context)
+        let round = getRound() + 1
+        
+        training.date = date
+        training.difficulty = "Professional"
+        training.mode = "Free Mode"
+        training.rating = getGrade()
+        training.round = round
+        
+        var scoreInput : [Score] = []
+        var id = getRound() * 10
+        for scoreFor in arrScores {
+            let scoreContext = Score(context: self.context)
+            id += 1
+            scoreContext.id = id
+            scoreContext.round = round
+            scoreContext.score = Int16(scoreFor)
+            scoreInput.append(scoreContext)
+        }
+        
+        training.addToScores(NSOrderedSet(array: scoreInput))
+        trainingData?.append(training)
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error 001 : Context not saved.")
+        }
+    }
+    
+    func getGrade() -> String {
+        let rate = gameScore * 100 / HighTotalScore
+        if rate >= 80 {
+            return "A"
+        } else if rate >= 60 {
+            return "B"
+        } else if rate >= 40 {
+            return "C"
+        } else if rate >= 20 {
+            return "D"
+        } else {
+            return "E"
+        }
+    }
+    
+    func getRound() -> Int16{
+        let roundTemp: Int16
+        let request : NSFetchRequest = Training.fetchRequest()
+        
+        do {
+            trainingData = try context.fetch(request)
+        } catch  {
+            print("error")
+        }
+        
+        roundTemp = trainingData?.last?.round ?? 0
+        
+        return roundTemp
     }
     
     func goalViewInvisible(){
@@ -352,5 +427,14 @@ class ViewControllerFreeModePro: UIViewController {
         view7.alpha = 1
         view8.alpha = 1
         view9.alpha = 1
+    }
+    
+    func funcAlert(){
+        let alert = UIAlertController(title: "\n Double Tap to the Area\n",message: "", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Sure", style: .default, handler: nil)
+        
+        alert.addAction(dismissAction)
+        alert.preferredAction = dismissAction
+        self.present(alert, animated: true, completion:  nil)
     }
 }

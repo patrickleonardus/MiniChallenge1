@@ -26,6 +26,11 @@ class ViewControllerLocation: UIViewController {
                 soccerFields2 = ["Position 4","Position 5"]
                 flagPlayerLocation = 0
             }
+            if previousVC is ViewControllerKeeperMode {
+                soccerFields1 = ["Position 1","Position 2","Position 3"]
+                soccerFields2 = ["Position 4","Position 5"]
+                flagPlayerLocation = 0
+            }
         }
         
         
@@ -43,7 +48,7 @@ class ViewControllerLocation: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.alpha = 0.3
     }
     

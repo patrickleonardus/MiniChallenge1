@@ -24,8 +24,8 @@ class ViewControllerHistory: UIViewController {
         loadItems()
 
         tableView.reloadData()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+        //self.navigationController?.navigationBar.tintColor = UIColor.white
+       // self.navigationController?.navigationBar.backgroundColor = Colors.orange
         
         // Do any additional setup after loading the view.
     }

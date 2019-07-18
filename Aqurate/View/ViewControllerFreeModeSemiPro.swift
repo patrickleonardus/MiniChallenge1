@@ -45,6 +45,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //view.backgroundColor = UIColor.black
+        
         if(flagSession == 10){
             flagSession = 0
         }
@@ -98,6 +100,9 @@ class ViewControllerFreeModeSemiPro: UIViewController {
             lblWarning.text = ""
             goalViewVisible()
             
+            if(flagSession == 0){
+                funcAlert()
+            }
         }
         if UIDevice.current.orientation.isPortrait{
             goalImage.alpha = 0
@@ -275,7 +280,7 @@ class ViewControllerFreeModeSemiPro: UIViewController {
         }
     }
     
-    private func saveTraining(arrScores: [Int]){
+    func saveTraining(arrScores: [Int]){
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM YYYY"
         let date = formatter.string(from: Date.init() as Date)
@@ -301,7 +306,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
         }
         
         training.addToScores(NSOrderedSet(array: scoreInput))
-        //training.scores = NSOrderedSet(object: scoreInput!)
         trainingData?.append(training)
 
         do {
@@ -326,26 +330,7 @@ class ViewControllerFreeModeSemiPro: UIViewController {
         }
     }
     
-//    private func saveScore(score: Int, round: Int, id: Int){
-    
-//        let training = Training(context: self.context)
-//        let score = Score(context: self.context)
-//
-//        data.date = date
-//        data.id = Int16(id)
-//        data.round = Int16(round)
-//        data.score = Int16(score)
-//
-//        trainingData?.append(data)
-//
-//        do {
-//            try context.save()
-//        } catch  {
-//            print("error")
-//        }
-//    }
-    
-    private func getRound() -> Int16{
+    func getRound() -> Int16{
         let roundTemp: Int16
         let request : NSFetchRequest = Training.fetchRequest()
         
@@ -387,6 +372,15 @@ class ViewControllerFreeModeSemiPro: UIViewController {
         UIView.animate(withDuration: 1.5) {
             self.tiltPhone.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
         }
+    }
+    
+    func funcAlert(){
+        let alert = UIAlertController(title: "\n Double Tap to the Area\n",message: "", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Sure", style: .default, handler: nil)
+        
+        alert.addAction(dismissAction)
+        alert.preferredAction = dismissAction
+        self.present(alert, animated: true, completion:  nil)
     }
         
 }

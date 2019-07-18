@@ -16,7 +16,6 @@ class ViewControllerKeeperMode: UIViewController {
     let keeperModePict = [UIImage(named: "semi"),UIImage(named: "pro")]
     let difficultyName = ["Semi-Pro","Professional"]
     let difficultyDescription = ["Choose this level for the easier step, you will get a goal box divided by 6 boxes","Pick this level to be a professional shooter, the goal box will be divided by 9 boxes"]
-    let ID = ["BA","BB"]
     
     
     let quotes : [String] = ["Reach your limit now","it ain't over until it's over","Man never quit"]
@@ -78,11 +77,17 @@ extension ViewControllerKeeperMode :  UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let IDs = ID[indexPath.row]
-        let viewController = storyboard?.instantiateViewController(withIdentifier: IDs)
+        
+        detailedScore = []
+        gameScore = 0
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "Location")
         self.navigationController?.pushViewController(viewController!, animated: true)
         
-        UserDefaults.standard.set(IDs, forKey: "savedKeeperModeID")
+        let ID = indexPath.row
+        UserDefaults.standard.set(ID, forKey: "savedKeeperModeID")
     }
+    
+    
     
 }

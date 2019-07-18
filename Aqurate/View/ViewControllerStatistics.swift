@@ -16,9 +16,8 @@ class ViewControllerStatistics: UIViewController {
 
     }
 
-    @IBAction func btnBackToHome(_ sender: Any) {
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "Home")
-        self.navigationController?.pushViewController(viewController!, animated: true)
+    @IBAction func btnBackToHome(_ sender: Any) {        
+        performSegue(withIdentifier: "goHome", sender: self)
     }
     
     @IBAction func btnRetry(_ sender: Any) {
@@ -28,8 +27,6 @@ class ViewControllerStatistics: UIViewController {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "Location")
         self.navigationController?.pushViewController(viewController!, animated: true)
         
-        let cek = UserDefaults.standard.object(forKey: "savedID")
-        print(cek!)
     }
     
     

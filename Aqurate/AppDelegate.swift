@@ -27,15 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        UITabBar.appearance().tintColor = .white
-        UITabBar.appearance().barTintColor = .orange
-        UITabBar.appearance().backgroundColor = .orange
-        UITabBar.appearance().unselectedItemTintColor = .brown
+       UITabBar.appearance().tintColor = .black
+    
+    
+//        UITabBar.appearance().barTintColor = .orange
+//        UITabBar.appearance().backgroundColor = .white
+//        UITabBar.appearance().unselectedItemTintColor = .brown
         
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(),for: .default)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+ //       UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(),for: .default)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         
         if let directoryLocation = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last { print("Documents Directory: \(directoryLocation)Application Support") }
         
