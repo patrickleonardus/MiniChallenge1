@@ -67,7 +67,7 @@ extension ViewControllerKeeperMode :  UICollectionViewDelegate, UICollectionView
         detailedScore = []
         gameScore = 0
         
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "Location")
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "Tips")
         self.navigationController?.pushViewController(viewController!, animated: true)
         
         let ID = indexPath.row

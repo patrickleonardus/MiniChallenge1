@@ -8,6 +8,7 @@ class ViewControllerKeeperModePro: UIViewController {
     @IBOutlet weak var lblWarning: UILabel!
     @IBOutlet weak var goalImage: UIImageView!
     @IBOutlet weak var tiltPhone: UIImageView!
+    @IBOutlet weak var lblRemainingShoot: UILabel!
     
     
     var flagConfirmation1 = 0
@@ -54,7 +55,13 @@ class ViewControllerKeeperModePro: UIViewController {
             flagSession = 0
         }
         
+        if(remainingShoot == 0){
+            remainingShoot = 10
+        }
+        lblRemainingShoot.text = String(remainingShoot)
         
+        maskingView1.alpha = 0
+        maskingView2.alpha = 0
         goalViewInvisible()
         goalImage.alpha = 0
         tiltPhone.image = UIImage(named: "tiltPhone")
@@ -192,7 +199,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view1.backgroundColor = Colors.greenActive
                 flagSession+=1
-                
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 2:
@@ -207,6 +216,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view2.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 3:
@@ -227,6 +239,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view3.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 4:
@@ -247,6 +262,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view4.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 5:
@@ -261,6 +279,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view5.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 6:
@@ -281,6 +302,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view6.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 7:
@@ -301,6 +325,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view7.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 8:
@@ -315,6 +342,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view8.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         case 9:
@@ -335,6 +365,9 @@ class ViewControllerKeeperModePro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view9.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
+                maskInvisible()
                 moveTo()
             }
         default:
@@ -489,6 +522,11 @@ class ViewControllerKeeperModePro: UIViewController {
         peopleImage2.alpha = 1
     }
     
+    func maskInvisible(){
+        view.sendSubviewToBack(maskingView1)
+        view.sendSubviewToBack(maskingView2)
+    }
+    
     func randomKeeper(){
         let flagKeeper = Int.random(in: 0...1)
         peopleInvisible()
@@ -502,8 +540,8 @@ class ViewControllerKeeperModePro: UIViewController {
     }
     
     func funcAlert(){
-        let alert = UIAlertController(title: "\n Double Tap to the Area\n",message: "", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Sure", style: .default, handler: nil)
+        let alert = UIAlertController(title: "\n Double Tap to the Area of Your Shooting",message: "", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         
         alert.addAction(dismissAction)
         alert.preferredAction = dismissAction

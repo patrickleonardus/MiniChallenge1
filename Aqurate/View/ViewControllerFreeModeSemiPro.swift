@@ -11,6 +11,7 @@ import CoreMotion
 import CoreData
 
 
+var remainingShoot = 10
 var flagSession = 0
 var gameScore = 0
 var detailedScore: [Int] = []
@@ -26,6 +27,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     @IBOutlet weak var view4: UIView!
     @IBOutlet weak var view5: UIView!
     @IBOutlet weak var view6: UIView!
+    @IBOutlet weak var lblRemainingShoot: UILabel!
+    
     
     
     var flagConfirmation1 = 0
@@ -35,6 +38,7 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     var flagConfirmation5 = 0
     var flagConfirmation6 = 0
     
+
     var round = 0
     var trainingData : [Training]?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -47,9 +51,13 @@ class ViewControllerFreeModeSemiPro: UIViewController {
         if(flagSession == 10){
             flagSession = 0
         }
+        if(remainingShoot == 0){
+            remainingShoot = 10
+        }
+        lblRemainingShoot.text = String(remainingShoot)
         
         timer = Timer.scheduledTimer(timeInterval: 1.6, target: self, selector: #selector(rotate), userInfo: nil, repeats: true)
-        
+    
         tiltPhone.image = UIImage(named: "tiltPhone")
         goalImage.image = UIImage(named: "gawang-6box")
         goalImage.alpha = 0
@@ -186,6 +194,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view1.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 
                 moveTo()
             }
@@ -201,7 +211,10 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view2.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
+                
             }
         case 3:
             view3.backgroundColor = Colors.green
@@ -215,6 +228,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view3.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 4:
@@ -229,6 +244,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view4.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 5:
@@ -243,6 +260,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view5.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 6:
@@ -257,6 +276,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view6.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         default:
@@ -372,8 +393,8 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     }
     
     func funcAlert(){
-        let alert = UIAlertController(title: "\n Double Tap to the Area\n",message: "", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Sure", style: .default, handler: nil)
+        let alert = UIAlertController(title: "\n Double Tap to the Area of your Shooting\n",message: nil, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         
         alert.addAction(dismissAction)
         alert.preferredAction = dismissAction

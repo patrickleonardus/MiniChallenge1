@@ -14,13 +14,17 @@ var soccerFields1 : [String] = ["Position 1","Position 2","Position 3"]
 var soccerFields2 : [String] = ["Position 4","Position 5"]
 var flagPlayerLocation = 0
 
+var flagAlert = false
+
 class ViewControllerLocation: UIViewController {
-    
-  // @IBOutlet weak var backgroundImage: UIImageView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if(flagAlert == false){
+            funcAlert()
+        }
         
         if let vcs = self.navigationController?.viewControllers {
             let previousVC = vcs[vcs.count - 2]
@@ -59,7 +63,6 @@ class ViewControllerLocation: UIViewController {
     func randomPlayerLocation1(){
         let randomField1 = Int.random(in: 0...(soccerFields1.count - 1))
         view.backgroundColor = UIColor(patternImage: UIImage(named: soccerFields1[randomField1])!)
-      // backgroundImage.image = UIImage(named: soccerFields1[randomField1])
         soccerFields1.remove(at: randomField1)
         if (soccerFields1.count == 0) {
             soccerFields1 = ["Position 1","Position 2","Position 3"]
@@ -70,7 +73,6 @@ class ViewControllerLocation: UIViewController {
     func randomPlayerLocation2(){
         let randomField2 = Int.random(in: 0...(soccerFields2.count - 1))
         view.backgroundColor = UIColor(patternImage: UIImage(named: soccerFields2[randomField2])!)
-    // backgroundImage.image = UIImage(named: soccerFields2[randomField2])
         soccerFields2.remove(at: randomField2)
         if (soccerFields2.count == 0) {
             soccerFields2 = ["Position 4","Position 5"]
@@ -83,6 +85,7 @@ class ViewControllerLocation: UIViewController {
         let checkFreeModeID = UserDefaults.standard.integer(forKey: "savedFreeModeID")
         let checkKeeperModeID = UserDefaults.standard.integer(forKey: "savedKeeperModeID")
         let checkRootID = UserDefaults.standard.integer(forKey: "savedRootID")
+        flagAlert = true
         
         
         if(checkRootID == 0){
@@ -111,7 +114,15 @@ class ViewControllerLocation: UIViewController {
                 HighTotalScore = 40
             }
         }
+    }
+    
+    
+    func funcAlert(){
+        let alert = UIAlertController(title: "Player Position before Shooting",message: nil, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         
-        
+        alert.addAction(dismissAction)
+        alert.preferredAction = dismissAction
+        self.present(alert, animated: true, completion:  nil)
     }
 }

@@ -19,6 +19,9 @@
 		E615D6A422DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D6A322DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift */; };
 		E615D6A622DE31CD006E9E68 /* ViewControllerKeeperModePro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D6A522DE31CD006E9E68 /* ViewControllerKeeperModePro.swift */; };
 		E615D6AC22E1C2C4006E9E68 /* ViewControllerTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615D6AB22E1C2C4006E9E68 /* ViewControllerTips.swift */; };
+		E615D6AE22E1C5A1006E9E68 /* Bola Tengah.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E615D6AD22E1C5A0006E9E68 /* Bola Tengah.mp4 */; };
+		E615D6B022E1C5C5006E9E68 /* Posisi Badan.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E615D6AF22E1C5C5006E9E68 /* Posisi Badan.mp4 */; };
+		E615D6B222E1C5D2006E9E68 /* Bola bagian Bawah.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E615D6B122E1C5D2006E9E68 /* Bola bagian Bawah.mp4 */; };
 		E652B15322CBC63A001424AA /* ViewControllerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652B15222CBC63A001424AA /* ViewControllerHistory.swift */; };
 		E6573A2E22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */; };
 		E67267D422CE4C6E009494E2 /* ViewControllerProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */; };
@@ -49,6 +52,9 @@
 		E615D6A322DE3176006E9E68 /* ViewControllerKeeperModeSemiPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeeperModeSemiPro.swift; sourceTree = "<group>"; };
 		E615D6A522DE31CD006E9E68 /* ViewControllerKeeperModePro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeeperModePro.swift; sourceTree = "<group>"; };
 		E615D6AB22E1C2C4006E9E68 /* ViewControllerTips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTips.swift; sourceTree = "<group>"; };
+		E615D6AD22E1C5A0006E9E68 /* Bola Tengah.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bola Tengah.mp4"; sourceTree = "<group>"; };
+		E615D6AF22E1C5C5006E9E68 /* Posisi Badan.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Posisi Badan.mp4"; sourceTree = "<group>"; };
+		E615D6B122E1C5D2006E9E68 /* Bola bagian Bawah.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bola bagian Bawah.mp4"; sourceTree = "<group>"; };
 		E652B15222CBC63A001424AA /* ViewControllerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistory.swift; sourceTree = "<group>"; };
 		E6573A2D22C869E400AAAE7B /* ViewControllerFreeModeSemiPro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFreeModeSemiPro.swift; sourceTree = "<group>"; };
 		E67267D322CE4C6E009494E2 /* ViewControllerProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProfiles.swift; sourceTree = "<group>"; };
@@ -125,6 +131,9 @@
 		E6A3B33E22C70DFA00501D3D = {
 			isa = PBXGroup;
 			children = (
+				E615D6B122E1C5D2006E9E68 /* Bola bagian Bawah.mp4 */,
+				E615D6AF22E1C5C5006E9E68 /* Posisi Badan.mp4 */,
+				E615D6AD22E1C5A0006E9E68 /* Bola Tengah.mp4 */,
 				E6A3B34922C70DFB00501D3D /* Aqurate */,
 				E6A3B34822C70DFB00501D3D /* Products */,
 			);
@@ -215,6 +224,9 @@
 				E6A3B35822C70DFC00501D3D /* LaunchScreen.storyboard in Resources */,
 				E6A3B35522C70DFC00501D3D /* Assets.xcassets in Resources */,
 				E6A3B35022C70DFB00501D3D /* Main.storyboard in Resources */,
+				E615D6B222E1C5D2006E9E68 /* Bola bagian Bawah.mp4 in Resources */,
+				E615D6AE22E1C5A1006E9E68 /* Bola Tengah.mp4 in Resources */,
+				E615D6B022E1C5C5006E9E68 /* Posisi Badan.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

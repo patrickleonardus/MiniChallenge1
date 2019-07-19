@@ -40,7 +40,7 @@ class Graph: UIView {
         let label = UILabel()
         let label2 = UILabel()
         label.frame = CGRect(x: 55, y: 500, width: 400, height: 120)
-        label2.frame = CGRect(x: 230, y: 540, width: 400, height: 120)
+        label2.frame = CGRect(x: 220, y: 500, width: 400, height: 120)
         label.font = label.font.withSize(20)
         label2.font = label.font.withSize(20)
         label.text = "Point Earn: \(x)/\(HighTotalScore)"

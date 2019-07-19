@@ -16,6 +16,7 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
     @IBOutlet weak var goalImage: UIImageView!
     @IBOutlet weak var peopleImage1: UIImageView!
     @IBOutlet weak var peopleImage2: UIImageView!
+    @IBOutlet weak var lblRemainingShoot: UILabel!
     
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
@@ -49,6 +50,11 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
         if(flagSession == 10){
             flagSession = 0
         }
+        
+        if(remainingShoot == 0){
+            remainingShoot = 10
+        }
+        lblRemainingShoot.text = String(remainingShoot)
         
         peopleInvisible()
         goalViewInvisible()
@@ -180,7 +186,8 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view1.backgroundColor = Colors.greenActive
                 flagSession+=1
-                
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 2:
@@ -196,6 +203,8 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view2.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 3:
@@ -215,6 +224,8 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view3.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 4:
@@ -234,6 +245,8 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view4.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 5:
@@ -249,6 +262,8 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view5.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         case 6:
@@ -268,6 +283,8 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view6.backgroundColor = Colors.greenActive
                 flagSession+=1
+                remainingShoot-=1
+                lblRemainingShoot.text = String(remainingShoot)
                 moveTo()
             }
         default:
@@ -424,8 +441,8 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
     }
     
     func funcAlert(){
-        let alert = UIAlertController(title: "\n Double Tap to the Area\n",message: "", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Sure", style: .default, handler: nil)
+        let alert = UIAlertController(title: "\n Double Tap to the Area of Your Shooting",message: "", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         
         alert.addAction(dismissAction)
         alert.preferredAction = dismissAction
