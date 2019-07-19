@@ -24,6 +24,10 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
     @IBOutlet weak var view5: UIView!
     @IBOutlet weak var view6: UIView!
     
+    @IBOutlet weak var maskingView1: UIView!
+    @IBOutlet weak var maskingView2: UIView!
+    
+    
     var flagConfirmation1 = 0
     var flagConfirmation2 = 0
     var flagConfirmation3 = 0
@@ -45,8 +49,6 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
         if(flagSession == 10){
             flagSession = 0
         }
-       
-        randomKeeper()
         
         peopleInvisible()
         goalViewInvisible()
@@ -60,6 +62,9 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.enableAllOrientation = true
+        
+        maskingView1.alpha = 0
+        maskingView2.alpha = 0
         
         randomKeeper()
     }
@@ -80,10 +85,16 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
             goalImage.transform = CGAffineTransform(rotationAngle: (0 * CGFloat.pi)/180)
             goalImage.alpha = 1
             tiltPhone.alpha = 0
+            maskingView1.alpha = 1
+            maskingView2.alpha = 1
             goalViewVisible()
             
             if(flagSession == 0){
                 funcAlert()
+            }
+            
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .black
             }
            
         }
@@ -92,7 +103,13 @@ class ViewControllerKeeperModeSemiPro: UIViewController {
             goalImage.alpha = 0
             tiltPhone.alpha = 1
             goalViewInvisible()
+            maskingView1.alpha = 0
+            maskingView2.alpha = 0
             timer = Timer.scheduledTimer(timeInterval: 1.6, target: self, selector: #selector(rotate), userInfo: nil, repeats: true)
+            
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .white
+            }
            
         }
     }

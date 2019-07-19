@@ -32,8 +32,8 @@ class ViewControllerProfileEdit: UIViewController, UINavigationControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
+//        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ViewControllerProfileEdit.tapFunction))
         imageProfile.isUserInteractionEnabled = true
@@ -196,7 +196,7 @@ class ViewControllerProfileEdit: UIViewController, UINavigationControllerDelegat
     func roundedProfile(){
         imageProfile.layer.borderWidth = 1
         imageProfile.layer.masksToBounds = false
-        imageProfile.layer.borderColor = UIColor.orange.cgColor
+        //imageProfile.layer.borderColor = UIColor.orange.cgColor
         imageProfile.layer.borderWidth = 2.0
         imageProfile.layer.cornerRadius = imageProfile.frame.height/2
         imageProfile.clipsToBounds = true

@@ -20,10 +20,6 @@ class ViewControllerLogin: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {

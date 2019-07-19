@@ -13,6 +13,7 @@ class ViewControllerHistory: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewNoHistory: UIView!
     
     
     var trainingData : [Training] = []
@@ -21,13 +22,16 @@ class ViewControllerHistory: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadItems()
-
-        tableView.reloadData()
-        //self.navigationController?.navigationBar.tintColor = UIColor.white
-       // self.navigationController?.navigationBar.backgroundColor = Colors.orange
         
-        // Do any additional setup after loading the view.
+        loadItems()
+        tableView.reloadData()
+        
+        print(trainingData.count)
+        
+        if(trainingData.count > 0){
+            viewNoHistory.alpha = 0
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -15,6 +15,9 @@ var soccerFields2 : [String] = ["Position 4","Position 5"]
 var flagPlayerLocation = 0
 
 class ViewControllerLocation: UIViewController {
+    
+  // @IBOutlet weak var backgroundImage: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,19 +51,15 @@ class ViewControllerLocation: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.alpha = 0.3
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.alpha = 1
-
     }
     
     func randomPlayerLocation1(){
         let randomField1 = Int.random(in: 0...(soccerFields1.count - 1))
         view.backgroundColor = UIColor(patternImage: UIImage(named: soccerFields1[randomField1])!)
+      // backgroundImage.image = UIImage(named: soccerFields1[randomField1])
         soccerFields1.remove(at: randomField1)
         if (soccerFields1.count == 0) {
             soccerFields1 = ["Position 1","Position 2","Position 3"]
@@ -71,6 +70,7 @@ class ViewControllerLocation: UIViewController {
     func randomPlayerLocation2(){
         let randomField2 = Int.random(in: 0...(soccerFields2.count - 1))
         view.backgroundColor = UIColor(patternImage: UIImage(named: soccerFields2[randomField2])!)
+    // backgroundImage.image = UIImage(named: soccerFields2[randomField2])
         soccerFields2.remove(at: randomField2)
         if (soccerFields2.count == 0) {
             soccerFields2 = ["Position 4","Position 5"]

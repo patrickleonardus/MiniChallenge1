@@ -10,7 +10,6 @@ import UIKit
 
 class ViewControllerKeeperMode: UIViewController {
 
-    @IBOutlet weak var lblQuotes: UILabel!
     @IBOutlet weak var collectionViewCellKeeperMode: UICollectionView!
     
     let keeperModePict = [UIImage(named: "semi"),UIImage(named: "pro")]
@@ -18,28 +17,18 @@ class ViewControllerKeeperMode: UIViewController {
     let difficultyDescription = ["Choose this level for the easier step, you will get a goal box divided by 6 boxes","Pick this level to be a professional shooter, the goal box will be divided by 9 boxes"]
     
     
-    let quotes : [String] = ["Reach your limit now","it ain't over until it's over","Man never quit"]
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.backgroundColor = Colors.orange
-        
         
         self.hidesBottomBarWhenPushed = true
         self.tabBarController?.tabBar.isHidden = true
 
-        
-        lblQuotes.text = "\"" + quotes.randomElement()! + "\""
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        lblQuotes.text = "\"" + quotes.randomElement()! + "\""
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,10 +49,7 @@ extension ViewControllerKeeperMode :  UICollectionViewDelegate, UICollectionView
         cell?.image.image = keeperModePict[indexPath.row]
         cell?.detail.text = difficultyDescription[indexPath.row]
         cell?.image.layer.cornerRadius = 10.0
-        cell?.image.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         cell?.contentView.layer.cornerRadius = 10
-        cell?.contentView.layer.borderWidth = 3.5
-        cell?.contentView.layer.borderColor = UIColor.orange.cgColor
         cell?.contentView.layer.masksToBounds = false
         cell?.layer.shadowColor = UIColor.gray.cgColor
         cell?.layer.shadowOffset = CGSize(width: 0, height: 1.5)

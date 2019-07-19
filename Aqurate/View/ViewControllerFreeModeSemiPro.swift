@@ -18,7 +18,6 @@ var detailedScore: [Int] = []
 class ViewControllerFreeModeSemiPro: UIViewController {
 
     @IBOutlet weak var lblWarning: UILabel!
-    @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var goalImage: UIImageView!
     @IBOutlet weak var tiltPhone: UIImageView!
     @IBOutlet weak var view1: UIView!
@@ -44,8 +43,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //view.backgroundColor = UIColor.black
         
         if(flagSession == 10){
             flagSession = 0
@@ -103,6 +100,11 @@ class ViewControllerFreeModeSemiPro: UIViewController {
             if(flagSession == 0){
                 funcAlert()
             }
+            
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .black
+            }
+            
         }
         if UIDevice.current.orientation.isPortrait{
             goalImage.alpha = 0
@@ -110,6 +112,10 @@ class ViewControllerFreeModeSemiPro: UIViewController {
             lblWarning.text = "Please tilt your phone to the landscape mode ↻"
             timer = Timer.scheduledTimer(timeInterval: 1.6, target: self, selector: #selector(rotate), userInfo: nil, repeats: true)
             goalViewInvisible()
+            
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .white
+            }
         }
     }
     func goalViewInvisible(){
@@ -177,7 +183,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 addPulse(for: view1)
                 gameScore+=3
                 detailedScore.append(3)
-                lblScore.text = String(gameScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view1.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -193,7 +198,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 addPulse(for: view2)
                 gameScore+=2
                 detailedScore.append(2)
-                lblScore.text = String(gameScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view2.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -208,7 +212,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 addPulse(for: view3)
                 gameScore+=3
                 detailedScore.append(3)
-                lblScore.text = String(gameScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view3.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -223,7 +226,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 addPulse(for: view4)
                 gameScore+=2
                 detailedScore.append(2)
-                lblScore.text = String(gameScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view4.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -238,7 +240,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 addPulse(for: view5)
                 gameScore+=1
                 detailedScore.append(1)
-                lblScore.text = String(gameScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view5.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -253,7 +254,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
                 addPulse(for: view6)
                 gameScore+=2
                 detailedScore.append(2)
-                lblScore.text = String(gameScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view6.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -344,9 +344,6 @@ class ViewControllerFreeModeSemiPro: UIViewController {
         
         return roundTemp
     }
-    
-   
-    
     
     private func resetButton(){
         view1.backgroundColor = UIColor.clear

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     let gameID = ["A","B"]
     
-    var data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+    var data : NSData!
     var infoImage : UIImageView!
     
     
@@ -31,13 +31,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-//        profileImageButton()
         
-//        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-      //  statusBar.backgroundColor = Colors.orange
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         self.tabBarController?.tabBar.isHidden = false
         
     }
@@ -47,8 +41,6 @@ class ViewController: UIViewController {
         
         profileImageButton()
         
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
         self.tabBarController?.tabBar.isHidden = false
         
     }
@@ -104,7 +96,25 @@ class ViewController: UIViewController {
         }
         
         if(firstCheck == false){
-            infoImage.image = UIImage(named: "profileTap")
+            infoImage = UIImageView(image: UIImage(named: "profileicon"))
+            navigationController?.navigationBar.addSubview(infoImage)
+            infoImage.tag = 10
+            infoImage.layer.cornerRadius = Const.ImageSizeForLargeState/2
+            infoImage.clipsToBounds = true
+            infoImage.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                infoImage.rightAnchor.constraint(equalTo: (navigationController?.navigationBar.rightAnchor)!, constant: -Const.ImageRightMargin),
+                infoImage.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor,
+                                                  constant: -Const.ImageBottomMarginForLargeState),
+                infoImage.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
+                infoImage.widthAnchor.constraint(equalToConstant: 53)
+                ])
+            infoImage.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapFunction))
+            infoImage.isUserInteractionEnabled = true
+            infoImage.addGestureRecognizer(tap)
+            
         }
     }
     
@@ -127,10 +137,7 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource {
         cell?.detail.text = gameDetail[indexPath.row]
         cell?.image.image = gamePict[indexPath.row]
         cell?.image.layer.cornerRadius = 10.0
-        cell?.image.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         cell?.contentView.layer.cornerRadius = 10
-//        cell?.contentView.layer.borderWidth = 3.5
-        //cell?.contentView.layer.borderColor = UIColor.orange.cgColor
         cell?.contentView.layer.masksToBounds = false
         cell?.layer.shadowColor = UIColor.gray.cgColor
         cell?.layer.shadowOffset = CGSize(width: 0, height: 1.5)
@@ -185,11 +192,11 @@ class snappingLayout: UICollectionViewFlowLayout {
             let itemHorizontalCenter = layoutAttributes.center.x
             
             if abs(itemHorizontalCenter - horizontalCenter) < abs(offsetAdjusment) {
-                if abs(velocity.x) < 10 { // minimum velocityX to trigger the snapping effect
+                if abs(velocity.x) < 10 { 
                     offsetAdjusment = itemHorizontalCenter - horizontalCenter
                 } else if velocity.x > 0 {
                     offsetAdjusment = itemHorizontalCenter - horizontalCenter + layoutAttributes.bounds.width
-                } else { // velocity.x < 0
+                } else {
                     offsetAdjusment = itemHorizontalCenter - horizontalCenter - layoutAttributes.bounds.width
                 }
             }

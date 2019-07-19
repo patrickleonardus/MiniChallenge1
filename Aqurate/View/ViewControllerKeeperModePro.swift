@@ -32,6 +32,13 @@ class ViewControllerKeeperModePro: UIViewController {
     @IBOutlet weak var view9: UIView!
     
     
+    @IBOutlet weak var maskingView1: UIView!
+    @IBOutlet weak var maskingView2: UIView!
+    
+    @IBOutlet weak var peopleImage1: UIImageView!
+    @IBOutlet weak var peopleImage2: UIImageView!
+    
+    
     var timer = Timer()
     
     var round = 0
@@ -59,6 +66,8 @@ class ViewControllerKeeperModePro: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.enableAllOrientation = true
+        
+        randomKeeper()
     }
     
     
@@ -77,18 +86,30 @@ class ViewControllerKeeperModePro: UIViewController {
             goalImage.transform = CGAffineTransform(rotationAngle: (0 * CGFloat.pi)/180)
             goalImage.alpha = 1
             tiltPhone.alpha = 0
+            maskingView1.alpha = 1
+            maskingView2.alpha = 1
             goalViewVisible()
             
             if(flagSession == 0){
                 funcAlert()
+            }
+            
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .black
             }
         }
         if UIDevice.current.orientation.isPortrait{
             lblWarning.text = "Please tilt your phone to the landscape mode ↻"
             goalImage.alpha = 0
             tiltPhone.alpha = 1
+            maskingView1.alpha = 0
+            maskingView2.alpha = 0
             goalViewInvisible()
             timer = Timer.scheduledTimer(timeInterval: 1.6, target: self, selector: #selector(rotate), userInfo: nil, repeats: true)
+            
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .white
+            }
         }
     }
     
@@ -150,6 +171,8 @@ class ViewControllerKeeperModePro: UIViewController {
     @objc func pulseTouch(_ gesture : UITapGestureRecognizer){
         resetButton()
         
+        var tempScore = 0
+        
         switch gesture.view?.tag {
         case 1:
             view1.backgroundColor = Colors.green
@@ -157,9 +180,15 @@ class ViewControllerKeeperModePro: UIViewController {
                 resetFlag()
                 flagConfirmation1 = 1
             } else {
+                if peopleImage1.alpha == 0 {
+                    tempScore = 4
+                }
+                else {
+                    tempScore = 1
+                }
                 addPulse(for: view1)
-                gameScore+=4
-                detailedScore.append(4)
+                gameScore+=tempScore
+                detailedScore.append(tempScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view1.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -173,8 +202,8 @@ class ViewControllerKeeperModePro: UIViewController {
                 flagConfirmation2 = 1
             } else {
                 addPulse(for: view2)
-                gameScore+=2
-                detailedScore.append(2)
+                gameScore+=3
+                detailedScore.append(3)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view2.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -186,9 +215,15 @@ class ViewControllerKeeperModePro: UIViewController {
                 resetFlag()
                 flagConfirmation3 = 1
             } else {
+                if peopleImage1.alpha == 0 {
+                    tempScore = 1
+                }
+                else {
+                    tempScore = 4
+                }
                 addPulse(for: view3)
-                gameScore+=4
-                detailedScore.append(4)
+                gameScore+=tempScore
+                detailedScore.append(tempScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view3.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -200,9 +235,15 @@ class ViewControllerKeeperModePro: UIViewController {
                 resetFlag()
                 flagConfirmation4 = 1
             } else {
+                if peopleImage1.alpha == 0 {
+                    tempScore = 3
+                }
+                else {
+                    tempScore = 0
+                }
                 addPulse(for: view4)
-                gameScore+=2
-                detailedScore.append(2)
+                gameScore+=tempScore
+                detailedScore.append(tempScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view4.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -215,8 +256,8 @@ class ViewControllerKeeperModePro: UIViewController {
                 flagConfirmation5 = 1
             } else {
                 addPulse(for: view5)
-                gameScore+=1
-                detailedScore.append(1)
+                gameScore+=2
+                detailedScore.append(2)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view5.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -228,9 +269,15 @@ class ViewControllerKeeperModePro: UIViewController {
                 resetFlag()
                 flagConfirmation6 = 1
             } else {
+                if peopleImage1.alpha == 0 {
+                    tempScore = 0
+                }
+                else {
+                    tempScore = 3
+                }
                 addPulse(for: view6)
-                gameScore+=2
-                detailedScore.append(2)
+                gameScore+=tempScore
+                detailedScore.append(tempScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view6.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -242,9 +289,15 @@ class ViewControllerKeeperModePro: UIViewController {
                 resetFlag()
                 flagConfirmation7 = 1
             } else {
+                if peopleImage1.alpha == 0 {
+                    tempScore = 3
+                }
+                else {
+                    tempScore = 0
+                }
                 addPulse(for: view7)
-                gameScore+=3
-                detailedScore.append(3)
+                gameScore+=tempScore
+                detailedScore.append(tempScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view7.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -257,8 +310,8 @@ class ViewControllerKeeperModePro: UIViewController {
                 flagConfirmation8 = 1
             } else {
                 addPulse(for: view8)
-                gameScore+=1
-                detailedScore.append(1)
+                gameScore+=2
+                detailedScore.append(2)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view8.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -270,9 +323,15 @@ class ViewControllerKeeperModePro: UIViewController {
                 resetFlag()
                 flagConfirmation9 = 1
             } else {
+                if peopleImage1.alpha == 0 {
+                    tempScore = 0
+                }
+                else {
+                    tempScore = 3
+                }
                 addPulse(for: view9)
-                gameScore+=3
-                detailedScore.append(3)
+                gameScore+=tempScore
+                detailedScore.append(tempScore)
                 UserDefaults.standard.set(gameScore, forKey: "savedScore")
                 view9.backgroundColor = Colors.greenActive
                 flagSession+=1
@@ -418,6 +477,28 @@ class ViewControllerKeeperModePro: UIViewController {
             view7.alpha = 1
             view8.alpha = 1
             view9.alpha = 1
+    }
+    
+    func peopleInvisible(){
+        peopleImage1.alpha = 0
+        peopleImage2.alpha = 0
+    }
+    
+    func peopleVisible(){
+        peopleImage1.alpha = 1
+        peopleImage2.alpha = 1
+    }
+    
+    func randomKeeper(){
+        let flagKeeper = Int.random(in: 0...1)
+        peopleInvisible()
+        
+        if(flagKeeper == 0){
+            peopleImage1.alpha = 1
+        }
+        else if(flagKeeper == 1){
+            peopleImage2.alpha = 1
+        }
     }
     
     func funcAlert(){

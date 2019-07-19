@@ -89,6 +89,9 @@ class ViewControllerFreeModePro: UIViewController {
                 funcAlert()
             }
             
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .black
+            }
         }
         if UIDevice.current.orientation.isPortrait{
             lblWarning.text = "Please tilt your phone to the landscape mode ↻"
@@ -96,7 +99,12 @@ class ViewControllerFreeModePro: UIViewController {
             tiltPhone.alpha = 1
             goalViewInvisible()
             timer = Timer.scheduledTimer(timeInterval: 1.6, target: self, selector: #selector(rotate), userInfo: nil, repeats: true)
+            
+            UIView.animate(withDuration: 0.6) {
+                self.view.backgroundColor = .white
+            }
         }
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
