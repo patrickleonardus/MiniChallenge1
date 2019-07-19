@@ -38,8 +38,6 @@ class ViewControllerProfiles: UIViewController{
         
         let firstCheck : Bool = UserDefaults.standard.bool(forKey: "check")
         
-//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         
         viewHeadAttribute()
@@ -57,15 +55,7 @@ class ViewControllerProfiles: UIViewController{
         
         // Do any additional setup after loading the view.
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.backgroundColor = Colors.orange
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//    }
+
     
     @IBAction func btnEditProfile(_ sender: Any) {
          performSegue(withIdentifier: "editProfile", sender: self)
@@ -130,11 +120,10 @@ class ViewControllerProfiles: UIViewController{
         imageProfile.layer.borderWidth = 2.5
         imageProfile.layer.cornerRadius = imageProfile.frame.height/2
         imageProfile.clipsToBounds = true
-        imageProfile.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
+        //imageProfile.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
     }
     
     func viewHeadAttribute(){
-        //viewHead.backgroundColor = Colors.orange
         viewHead.layer.shadowColor = UIColor.gray.cgColor
         viewHead.layer.shadowOffset = CGSize(width: 0, height: 10)
         viewHead.layer.shadowRadius = 8

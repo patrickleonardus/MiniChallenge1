@@ -86,8 +86,6 @@ class ViewController: UIViewController {
                 infoImage.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
                 infoImage.widthAnchor.constraint(equalToConstant: 53)
                 ])
-            infoImage.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
-            
             let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapFunction))
             infoImage.isUserInteractionEnabled = true
             infoImage.addGestureRecognizer(tap)
@@ -109,8 +107,6 @@ class ViewController: UIViewController {
                 infoImage.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
                 infoImage.widthAnchor.constraint(equalToConstant: 53)
                 ])
-            infoImage.transform = CGAffineTransform(rotationAngle: (90 * CGFloat.pi)/180)
-            
             let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapFunction))
             infoImage.isUserInteractionEnabled = true
             infoImage.addGestureRecognizer(tap)
