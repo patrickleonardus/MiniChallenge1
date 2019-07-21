@@ -28,12 +28,7 @@ class ViewControllerLocation: UIViewController {
         
         if let vcs = self.navigationController?.viewControllers {
             let previousVC = vcs[vcs.count - 2]
-            if previousVC is ViewControllerFreeMode {
-                soccerFields1 = ["Position 1","Position 2","Position 3"]
-                soccerFields2 = ["Position 4","Position 5"]
-                flagPlayerLocation = 0
-            }
-            if previousVC is ViewControllerKeeperMode {
+            if previousVC is ViewControllerTips {
                 soccerFields1 = ["Position 1","Position 2","Position 3"]
                 soccerFields2 = ["Position 4","Position 5"]
                 flagPlayerLocation = 0
