@@ -12,7 +12,7 @@ class ViewControllerKeeperMode: UIViewController {
 
     @IBOutlet weak var collectionViewCellKeeperMode: UICollectionView!
     
-    let keeperModePict = [UIImage(named: "semi"),UIImage(named: "pro")]
+    let keeperModePict = [UIImage(named: "Free Mode"),UIImage(named: "Keeper Mode")]
     let difficultyName = ["Semi-Pro","Professional"]
     let difficultyDescription = ["Choose this level for the easier step, you will get a goal box divided by 6 boxes","Pick this level to be a professional shooter, the goal box will be divided by 9 boxes"]
     
